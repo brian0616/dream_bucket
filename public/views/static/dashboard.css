@@ -1,0 +1,57 @@
+#name h3, img, p{
+	display: inline-block;
+}
+
+#last_two {
+	margin-top: 17px;
+}
+#underline {
+	color: orange;
+}
+button {
+	margin-top: 40px;
+	float: right;
+}
+.border {
+	border: 2px solid;
+	width: 500px;
+	height: 500px;
+	display: inline-block;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+	color: orange;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid orange;
+	box-shadow: 0 1px 0 0 orange;
+}
+.input-field input[type=tel]:focus + label {
+	color: orange;
+}
+/* label underline focus color */
+.input-field input[type=tel]:focus {
+	border-bottom: 1px solid orange;
+	box-shadow: 0 1px 0 0 orange;
+}
+hr.style-seven {
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px 0 0 0;
+    border-radius: 20px;
+    border-color: orange;
+}
+.tabs a:link{
+	color: black;
+	font-weight: bold;
+	font-size: 17px;
+	text-decoration: none;
+}
+.card-title {
+	font-family: 'Quicksand', serif; 
+}
+p {
+	font-size: 15px;
+}

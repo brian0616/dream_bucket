@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Bucket List</title>
+  		<script>document.write("<base href=\"" + document.location + "\" />");</script>
+
+    	<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+		<!-- Materialize -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="./bower_components/materialize/dist/js/materialize.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="./bower_components/materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+		<!--- overrider css -->
+		<link rel="stylesheet" type="text/css" src="./../../public/views/index.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+		 <!-- Google Font -->
+	   <link href='https://fonts.googleapis.com/css?family=Asap|Quicksand|Josefin+Slab|Coming+Soon' rel='stylesheet' type='text/css'>
+
+	   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+
+		<script type="text/javascript" src="application.js"></script>
+		<script type="text/javascript" src="controllers/authentication.client.controller.js"></script>
+		<script type="text/javascript" src="controllers/bucket.client.controller.js"></script>
+		<script type="text/javascript" src="factory/factory.js"></script>
+		<script type="text/javascript" src="controllers/index.client.controller.js"></script>
+		<script type="text/javascript" src="services/authentication.client.service.js"></script>
+		<script type="text/javascript" src="config/application.client.routes.js"></script>
+
+	  	<script type="text/javascript">
+			window.user = <%- user || 'null' %>;
+		</script>
+
+	   <!-- CSS -->
+	   <style type="text/css">
+		    body {
+		      font-family: 'Josefin Slab', serif;
+		      color: black;
+		    }
+  	   </style>
+  	</head>
+  	<body>
+<!--   	<nav class='#212121 grey darken-4'>
+		<section ng-if="!window.user">
+			<div class="nav-wrapper">
+				<p class="brand-logo">Bucket List</p>
+				<a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="sass.html">Login via Facebook</a></li>
+				</ul>
+			</div>
+		</section>
+		<section ng-if="window.user">
+			<div class="nav-wrapper">
+				<a href="#!" class="brand-logo">Bucket List</a>
+				<a href="#!" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="sass.html">Logout</a></li>
+				</ul>
+			</div>
+		</section>
+	</nav> -->
+  	<section ng-view></section>
+		
+
+		
+  	</body>
+</html>

@@ -1,0 +1,202 @@
+<link rel="stylesheet" ng-href="{{css}}">
+
+<script type='text/javascript'>
+  $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });   
+
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+        
+</script>
+
+
+<div ng-controller="AuthenticationController">
+	<div ng-controller="BucketController">
+		<a class="waves-effect wave-orange  btn-flat" style="float:right;font-size:20px;" href="/oauth/signout">Sign Out</a>
+
+		<div id='name' align="center">
+			<br><br><br><br>
+			<img src="http://graph.facebook.com/{{authentication.user.providerID}}/picture" style="width:70px;height:70px;margin-top:-20px;margin-right:20px;" class="circle responsive-img">
+			<h3>Welcome, {{authentication.user.name}}!</h3>
+
+			<section>
+				<!-- Modal Trigger -->
+				<!-- <a class="modal-trigger waves-effect waves-light btn-flat" href="#modal1">Invite your friends!</a> -->
+
+				<!-- Modal Structure -->
+<!-- 				<div id="modal1" class="modal modal-fixed-footer">
+					<form class="col s12">
+						<div class="modal-content"><br>
+							<h4>Invite your friends via TEXT!</h4><br>
+							<div class="row">
+								<div class="input-field col s6">
+									<i class="material-icons prefix">account_circle</i>
+									<input id="icon_prefix" type="text" ng-model="text.name">
+									<label for="icon_prefix">First Name</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="material-icons prefix">phone</i>
+									<input id="phone" type="tel" class="validate" ng-model="text.number">
+									<label for="phone">Telephone</label>
+								</div>
+								<div class="input-field col s11" style="margin-left:40px;">
+									<input id="text" type="text" ng-model="text.message">
+									<label for="text">Add your message here!</label>
+								</div>
+							</div>
+						</div> -->
+<!-- 						<div class="modal-footer">
+							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" style="font-size:18px;" ng-click="sendText(text)">Send</a>
+						</div>
+					</form>
+				</div> -->
+			</section>
+		</div>
+
+		<!-- Bucket List Submit Form -->
+		<!-- <div class='row'> -->
+		<!-- <div class="valign-wrapper"> -->
+		<div class="container">
+			<form class='col s6'>
+				<!-- <div class='row'> -->
+				<div class="input-field col s6">
+					<input id="title" type="text" ng-model='bucket.title'>
+					<label for="title">Title</label>
+				</div>
+				<div class="input-field col s12">
+					<input id="desc" type="text" ng-model='bucket.desc'>
+					<label for="desc">What do you want to do?</label>
+				</div>
+				<div class="input-field col s12">
+					<input id="image" type="text" ng-model="bucket.image">
+					<label for="image">Image URL</label>
+				</div>
+				<div id='last_two' class='col s6'>
+					<select class="browser-default col s3" ng-model='bucket._tagged' id='friend'>
+						<option value="" disabled selected>Click here to tag your friend!</option>
+						<option ng-repeat="friend in authentication.user.friends" value="{{friend.id}}">
+							{{friend.name}}
+						</option>
+					</select>
+					<button class="btn waves-effect #ffab00 amber accent-4" type="submit" name="action" ng-click='addBucket(bucket)'>Add to list
+						<i class="material-icons right">send</i>
+					</button>
+				</div>
+				<!-- </div> -->
+			</form>
+		</div>
+
+		<br><br>
+		<div class="container">
+			<div class="section">
+				<div class="row">
+					<div class="col s12 center">
+						<br>
+						<!-- <div id='quote'> -->
+						<h5>“A journey is best measured in friends, rather than miles.” </h5>
+						<h6 align="center">- Tim Cahill</h6>
+						<!-- </div> -->
+						<hr class="style-seven">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- SEARCH BAR -->
+		<div class="container">
+			<div id='searchbox' class='input-field' >
+				<label for='filter' style="font-size:20px;">Too many? search your bucket list here</label>
+				<input id='filter' type='text' ng-model='searchText' >
+			</div>			
+		</div>
+
+		<!-- TAB -->
+		<div class="row">
+			<!-- <div class="col s12"> -->
+			<ul class="tabs" style="width:100%;">
+				<li class="tab col s3" style="width:40%;">
+					<a class="active" href="#bucket">Things you should do</a>
+				</li>
+				<li class="tab col s3" style="width:40%;">
+					<a href="#test2">Things you completed</a>
+				</li>
+			</ul>
+			<!-- </div> -->
+
+			<!-- THINGS THAT NEED TO BE DONE -->
+			<div id="bucket" class="col s12">
+				<div class="row">
+					<div class="col s6" class="box">
+						<br>
+						<div ng-repeat="event in buckets.user | filter: searchText" class="box">
+							<div class="card" >
+								<div class="card-image">
+									<img style="height:400px;"src="{{event.image}}">
+									<span style="font-size:40px;" class="card-title" align="center">{{event.title}}</span>
+								</div>
+								<div class="card-content">
+									<img src="http://graph.facebook.com/{{event._user}}/picture" style="width:60px;height:60px;border-radius:200px" float="left">
+									<p style="margin-left:20px;">{{event.desc}}</p>
+									<img src="http://graph.facebook.com/{{event._tagged}}/picture" style="width:60px;height:60px;border-radius:200px;float:right">
+								</div>		
+								<button class="btn waves-effect #ffab00 amber accent-4" type="submit" name="action" ng-click='doneBucket(event)' style="float:center;margin-top:-10px;margin-right:10px;margin-bottom:10px;">Done?
+									<i class="material-icons left">done</i>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="col s6" class="box">
+						<!-- <h3>Tagged Items</h3> -->
+						<div ng-repeat="event in buckets.tagged | filter: searchText" class="box">
+							<div class="card">
+								<div class="card-image">
+									<img style="height:400px;"src="{{event.image}}">
+									<span style="font-size:40px;" class="card-title" align="center">{{event.title}}</span>
+								</div>
+								<div class="card-content">
+									<img src="http://graph.facebook.com/{{event._tagged}}/picture" style="width:60px;height:60px;border-radius:200px" float="left">
+									<p style="margin-left:20px;">{{event.desc}}</p>
+									<img src="http://graph.facebook.com/{{event._user}}/picture" style="width:60px;height:60px;border-radius:200px;float:right">
+								</div>
+								<button class="btn waves-effect #ffab00 amber accent-4" type="submit" name="action" ng-click='doneBucket(event)' style="float:center;margin-top:-10px;margin-right:10px;margin-bottom:10px;">Done?
+									<i class="material-icons left">done</i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	<!-- THINGS THAT ARE DONE -->
+				<div id="test2" class="col s12">
+					<div class="row">
+						<div ng-repeat="event in buckets.done | filter: searchText" class="box">
+							<div class="col s6">
+								<div class="card" >
+									<div class="card-image">
+										<img style="height:400px;"src="{{event.image}}">
+										<span style="font-size:40px;" class="card-title" align="center">{{event.title}}</span>
+									</div>
+									<div class="card-content">
+										<img src="http://graph.facebook.com/{{event._user}}/picture" style="width:60px;height:60px;border-radius:200px" float="left">
+										<p style="margin-left:20px;">{{event.desc}}</p>
+										<img src="http://graph.facebook.com/{{event._tagged}}/picture" style="width:60px;height:60px;border-radius:200px;float:right">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</div>
+
+
