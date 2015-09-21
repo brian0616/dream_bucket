@@ -4,7 +4,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var mongoose = require('mongoose');
 
 // Configure Mongoose
-var db = mongoose.connect('mongodb://localhost/bucket');
+var db = mongoose.connect(process.env.MONGOLAB_URI || "mongodb://heroku_pmrpz85t:pkmdupmnltkm4a21j098037aur@ds051553.mongolab.com:51553/heroku_pmrpz85t");
 
 // Configure Express
 var express = require('./config/express');
