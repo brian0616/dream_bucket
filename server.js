@@ -13,7 +13,7 @@ var app = express();
 var passport = require('./config/passport')();
 
 // Bootstrap application
-app.listen(8080);
+app.listen(3000);
 
 // Tell developer about it
-console.log('Server running at http://localhost:8080/');
+console.log('Server running at http://localhost:3000/');

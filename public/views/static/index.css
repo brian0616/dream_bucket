@@ -1,20 +1,37 @@
-video {
-  width: 100%;
+
+.slide, .slide:before {
+  background: 50% / cover; 
+  padding: 30vh 20%; 
 }
 
-#main {
-  position: absolute;
+#title {
+  background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsGkGOvoj5Rygi9a9gGkwq8pg_ogPRQfdVXEE8d8E9OFFe1Ed3uQ);
+  /*background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR19hYsK19w3ux5z-Fb0NV9Y4Djlm2UEQIZ62vW8N4SKGJr2Ys-);*/
+  background-attachment: fixed;  
+}
+
+#text {
+  /*position: absolute;*/
+  /*margin-top: 10%;*/
   top: 40%;
   width: 100%;
   /*font-size: 36px;*/
   letter-spacing: 3px;
-  color: #fff;
+  color: black;
   font-family: 'Josefin Slab', serif;
   text-align: center;
   /*opacity: 0.7;*/
-  font-size: 75px;
+  font-size: 62px;
 }
 
+/*#main {
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 50px;
+  padding: 30px 10px;
+  width: 900px;
+}
+*/
 h3 {
   font-family: 'Coming Soon', cursive;
 }
@@ -59,8 +76,3 @@ width:75%;
   transition-property: transform;
 }
 
-#fb_button:hover {
-  transform: rotate(10deg);
-  -webkit-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-}

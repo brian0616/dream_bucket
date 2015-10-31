@@ -16,8 +16,8 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="./bower_components/materialize/dist/css/materialize.min.css"  media="screen,projection"/>
 		<!--- overrider css -->
-		<link rel="stylesheet" type="text/css" src="./../../public/views/index.css">
-
+		<link rel="stylesheet" type="text/css" src="./../../public/views/static/index.css">
+		<!-- <link type="mp4" src="./../../public/views/static/vidoe.mp4"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		
 		 <!-- Google Font -->
@@ -25,7 +25,6 @@
 
 	   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
-
 		<script type="text/javascript" src="application.js"></script>
 		<script type="text/javascript" src="controllers/authentication.client.controller.js"></script>
 		<script type="text/javascript" src="controllers/bucket.client.controller.js"></script>
@@ -33,10 +32,10 @@
 		<script type="text/javascript" src="controllers/index.client.controller.js"></script>
 		<script type="text/javascript" src="services/authentication.client.service.js"></script>
 		<script type="text/javascript" src="config/application.client.routes.js"></script>
-
 	  	<script type="text/javascript">
 			window.user = <%- user || 'null' %>;
 		</script>
+
 
 	   <!-- CSS -->
 	   <style type="text/css">
@@ -67,6 +66,7 @@
 			</div>
 		</section>
 	</nav> -->
+
   	<section ng-view></section>
 		
 
