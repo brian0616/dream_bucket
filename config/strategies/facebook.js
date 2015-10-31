@@ -10,7 +10,7 @@ module.exports = function() {
         clientID: '502296169929947',
         clientSecret: '88675a0f667696f3c5d96ae620ca7753',
         // callbackURL: 'http://52.27.39.42/oauth/facebook/callback/',
-        callbackURL: 'http://localhost:3000/oauth/facebook/callback/',
+        callbackURL: 'http://localhost:8000/oauth/facebook/callback/',
         profileFields: ['id', 'displayName', 'photos', 'email', 'friends']
     },
     function(req, accessToken, refreshToken, profile, done) {
